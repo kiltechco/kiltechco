@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedHero from '../components/AnimatedHero';
+import AnimatedAppShowcase from '../components/AnimatedAppShowcase';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <main>
+    <AnimatedHero client:load />
+    <AnimatedAppShowcase client:load />
+    <Footer />
+  </main>
+</Layout>
+

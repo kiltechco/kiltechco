@@ -1,0 +1,144 @@
+---
+// App showcase section with portfolio items
+const apps = [
+  {
+    id: 1,
+    title: "E-Commerce Platform",
+    description: "A modern, scalable online shopping experience with real-time inventory and seamless checkout.",
+    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    image: "🛒",
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    id: 2,
+    title: "Analytics Dashboard",
+    description: "Real-time data visualization and insights platform for business intelligence.",
+    tech: ["Next.js", "D3.js", "MongoDB", "AWS"],
+    image: "📊",
+    color: "from-purple-500 to-pink-500"
+  },
+  {
+    id: 3,
+    title: "Mobile Fitness App",
+    description: "Cross-platform fitness tracking with AI-powered workout recommendations.",
+    tech: ["React Native", "Firebase", "TensorFlow", "Redux"],
+    image: "💪",
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    id: 4,
+    title: "SaaS CRM System",
+    description: "Complete customer relationship management with automation and integrations.",
+    tech: ["Vue.js", "Python", "Redis", "Docker"],
+    image: "🎯",
+    color: "from-orange-500 to-red-500"
+  },
+  {
+    id: 5,
+    title: "AI Content Generator",
+    description: "Machine learning powered content creation and optimization tool.",
+    tech: ["Python", "OpenAI", "FastAPI", "React"],
+    image: "🤖",
+    color: "from-indigo-500 to-purple-500"
+  },
+  {
+    id: 6,
+    title: "Real-Time Chat Platform",
+    description: "Secure, scalable messaging platform with video calls and file sharing.",
+    tech: ["WebRTC", "Socket.io", "Node.js", "MongoDB"],
+    image: "💬",
+    color: "from-teal-500 to-cyan-500"
+  }
+];
+---
+
+<section id="apps" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6">
+        Our <span class="text-primary-400">Portfolio</span>
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Showcasing innovative applications built with cutting-edge technology
+      </p>
+    </div>
+
+    <!-- Apps Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {apps.map((app) => (
+        <div 
+          class="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden"
+        >
+          <!-- Gradient Background -->
+          <div class={`absolute inset-0 bg-gradient-to-br ${app.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+          
+          <div class="relative z-10">
+            <!-- Icon/Emoji -->
+            <div class="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">
+              {app.image}
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-2xl font-bold mb-4 group-hover:text-primary-400 transition-colors">
+              {app.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              {app.description}
+            </p>
+
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              {app.tech.map((tech) => (
+                <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300 border border-white/20">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <!-- Hover Effect Overlay -->
+            <div class="absolute inset-0 border-2 border-primary-500/0 group-hover:border-primary-500/50 rounded-2xl transition-all duration-500 pointer-events-none"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-16">
+      <a 
+        href="#contact" 
+        class="inline-block px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+      >
+        Start Your Project
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Stagger animation for app cards */
+  .grid > div {
+    animation: slideUp 0.8s ease-out backwards;
+  }
+  
+  .grid > div:nth-child(1) { animation-delay: 0.1s; }
+  .grid > div:nth-child(2) { animation-delay: 0.2s; }
+  .grid > div:nth-child(3) { animation-delay: 0.3s; }
+  .grid > div:nth-child(4) { animation-delay: 0.4s; }
+  .grid > div:nth-child(5) { animation-delay: 0.5s; }
+  .grid > div:nth-child(6) { animation-delay: 0.6s; }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
