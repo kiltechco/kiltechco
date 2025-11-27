@@ -24,7 +24,7 @@ export const onRequest = defineMiddleware((context, next) => {
     // Decode base64 auth header
     const base64Credentials = authHeader.split(" ")[1];
     const credentials = atob(base64Credentials);
-    const [username, password] = credentials.split(":");
+    const [, password] = credentials.split(":"); // username is ignored
 
     // Check password (username can be anything)
     if (password !== STAGING_PASSWORD) {
