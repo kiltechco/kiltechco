@@ -6,7 +6,9 @@ export const onRequest = defineMiddleware((context, next) => {
   const { request, url } = context;
 
   // Only protect staging domain (and only if password is set)
-  if (url.hostname === "stg.kiltech.co" && STAGING_PASSWORD) {
+  // Temporarily protect all domains to test
+  if (STAGING_PASSWORD) {
+    console.log("Middleware running, hostname:", url.hostname);
     const authHeader = request.headers.get("authorization");
 
     if (!authHeader) {
